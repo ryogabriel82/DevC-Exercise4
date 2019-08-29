@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Kalkuator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--<link rel="stylesheet" type="text/css" href="style.css"/> -->
+    <!--<link rel="stylesheet" type="text/css" href="style2.css"/> -->
+</head>
+
+<body>
+    <center>
+        <div class="alert alert-primary" role="alert">
+            <h1>Kalkulator</h1>
+        </div>
+    </center>
+
+    <center>
+        <input type="text" id="angkaPertama">
+
+        <select id="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="^">^</option>
+        </select>
+        <input type="text" id="angkaKedua">
+        <input type="submit" onclick="kalkulator()" value="=">
+    </center>
+    <center>
+        <h3>
+            <div id="hasil">0</div>
+        </h3>
+    </center>
+
+</body>
+<script language="javascript" type="text/javascript">
+    function kalkulator() {
+        var angkaPertama = parseInt(document.getElementById("angkaPertama").value);
+        var angkaKedua = parseInt(document.getElementById("angkaKedua").value);
+        var op = document.getElementById("operator").value;
+        var hasil = document.getElementById("hasil");
+        var total;
+        if (isNaN(angkaPertama) || isNaN(angkaKedua)) {
+            alert('isi form dengan angka!')
+        }
+        else {
+            if (op == "+") {
+                total = angkaPertama + angkaKedua;
+            }
+            else if (op == "-") {
+                total = angkaPertama - angkaKedua;
+            }
+            else if (op == "*") {
+                total = angkaPertama * angkaKedua;
+            }
+            else if (op == "/") {
+                total = angkaPertama / angkaKedua;
+            }
+            else if (op == "^") {
+                total = Math.pow(angkaPertama,angkaKedua);
+            }
+
+        }
+        hasil.textContent = total;
+    }
+</script>
+</html>
